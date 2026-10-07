@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="kn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+       content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#5634ab">
+    <title>Mane Bazaar</title>
+
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700
+    &family=Noto+Sans+Kannada:wght@400;600;700&display=swap">
+
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+    </head>
+    <body>
+        <aside class="sidebar">
+        <div class="brand">
+            <span class="brandmark">MB</span>
+            <span>Mane Bazaar</span>
+        </div>
+        <p class="brand-sub"> MADE IN HUBBALLI</p>
+        <nav class="nav" aria-label="Main navigation">
+        <button data-page="home">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span data-t="home"></span>
+        </button>
+        <button data-page="orders">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            <span data-t="orders"></span>
+        </button>
+        <button data-page="products" data-seller hidden>
+            <span class="nav-icon" aria-hidden="true">▦</span>
+            <span data-t="products"></span>
+        </button>
+        <button data-page="record" data-seller hidden>
+            <span class="nav-icon" aria-hidden="true">◎</span>
+            <span data-t="record"></span>
+        </button>
+        </nav>
+<div class="sidebar-bottom">
+    <div class="help-card">
+       <strong data-t="local"></strong>
+<p data-t="localNote"></p>
+    </div>
+    <button class="profile" data-account>
+        <span class="avatar">MB</span>
+        <span>
+            <strong id="side-name">Mane Bazaar</strong>
+          <small data-t="account"></small>
+        </span>
+    </button>
+</div>
+</aside>
+<div class="main">
+    <header class="topbar">
+        <div class="mobile-brand">
+            <span class="brandmark">MB</span>
+            <strong>Mane Bazaar</strong>
+        </div>
+        <div class="crumb">
+            Hubballi <span>/
+            </span>
+            <strong id="page-label"></strong>
+        </div>
+        <div class="top-actions">
+        <div class="language">
+          <button data-lang="kn">ಕನ್ನಡ</button>
+          <button data-lang="en">EN</button>
+          </div>
+
+        <button class="account-button" data-account
+                aria-label="Account">MB</button>
+        </div>
+    </header>
+    <main class="content">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow" id="greeting"></p>
+                <h1 id="heading"></h1>
+                <p class="sub" id="location"></p>
+
+            </div>
+            <span class="pill" id="shop-status"></span>
+        </div>
+        <section id="home-panel">
+            <div class="hero">
+                <div class="hero-copy">
+                    <p class="hero-eyebrow" data-t="heroEyebrow"></p>
+            <h2 id="hero-title"></h2>
+            <p id="hero-description"></p>
+            <button class="btn yellow" id="hero-action"></button>
+                </div>
+                <div class="hero-art">
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/73/Chakli.jpg" 
+                    alt="Illustrative homemade chakli">
+              <div class="hero-label">
+              <strong data-t="homeMade">
+              </strong>
+              <small data-t="illustrative">
+              </small>
+            </div>
+            </div>
+            </div>
+        <div id="stats" class="stats" data-seller hidden></div>
+        <div class="dashboard" data-seller hidden>
+            <section class="panel">
+                <div class="section-head">
+                    <h2 data-t="recent"></h2>
+                    <button class="text-btn" data-page="orders"
+                    data-t="viewAll"></button>
+                </div>
+                <div id="recent-orders"></div>
+            </section>
+            <section class="panel">
+                <div class="section-head">
+                    <h2 data-t="quick"></h2>
+                </div>
+                <div class="action-grid">
+                    <button class="action-tile" data-add>
+                        <b aria-hidden="true">＋</b>
+                        <span data-t="addProduct"></span>
+                    </button>
+                    <button class="action-tile" data-page="orders">
+                        <b aria-hidden="true">▤</b>
+                        <span data-t="orders"></span>
+                    </button>
+                <button class="action-tile" data-page="products">
+                <b aria-hidden="true">▦</b>
+                <span data-t="products"></span>
+                    </button>
+                    <button class="action-tile" data-page="record">
+  <b aria-hidden="true">◎</b>
+  <span data-t="record"></span>
+</button>
+                </div>
+                <p class="tip" data-t="sellerTip"></p>
+            </section>
+        </div>
+        </section>
+        <section id="catalog-panel">
+          <div class="section-head">
+          <h2 data-t="catalogue"></h2>
+          <button class="btn small" data-add data-seller hidden
+          data-t="addProduct"></button>
+          </div>
+<input id="search" type="search"
+     data-placeholder="search"
+    aria-label="Search products">
+<div id="products" class="products"></div>
+</section>
+<section id="orders-panel" hidden>
+    <div class="section-head">
+            <h2 data-t="orders"></h2>
+<select id="order-filter" aria-label="Filter orders">
+    <option value="all" data-t="all"></option>
+            <option value="new" data-t="new"></option>
+            <option value="accepted" data-t="accepted"></option>
+            <option value="ready" data-t="ready"></option>
+            <option value="picked_up" data-t="picked_up"></option>
+            <option value="delivered" data-t="delivered"></option>
+            <option value="cancelled" data-t="cancelled"></option>
+            <option value="declined" data-t="declined"></option>
+</select>
+        </div>
+        <p class="muted small-text" data-t="latest"></p>
+        <div id="orders"></div>
+    </section>
+        <section id="record-panel" hidden>
+        <div class="passport">
+          <p class="hero-eyebrow" data-t="businessRecord"></p>
+          <h2 id="record-name"></h2>
+          <p id="record-area"></p>
+          <div id="record-stats" class="passport-grid"></div>
+
+        </div>
+        <div class="panel">
+            <h2 data-t="recordMeaning"></h2>
+            <p data-t="recordNote"></p>
+          <p class="muted small-text" data-t="latest"></p>
+        </div>
+    </section>
+    <footer>
+        <span id="connection" role="status"></span>
+        <button class="text-btn" data-credits
+                data-t="credits"></button>
+    </footer>
+    </main>
+     </div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<dialog id="login-dialog" aria-labelledby="login-title">
+    <div class="dialog-head">
+        <h2 id="login-title" data-t="sellerLogin"></h2>
+        <button class="close" data-close aria-label="Close">×</button>
+    </div>
+<p class="muted" data-t="loginNote"></p>
+<form id="login-form">
+    <label>
+        <span data-t="password"></span>
+        <input name="password" type="password"
+               autocomplete="current-password" required>
+
+    </label>
+    <p class="form-error" role="alert"></p>
+      <button class="btn" type="submit" data-t="signIn"></button>
+
+</form>
+</dialog>
+<dialog id="product-dialog" aria-labelledby="product-title">
+    <div class="dialog-head">
+      <h2 id="product-title"></h2>
+      <button class="close" data-close aria-label="Close">×</button>
+    </div>
+<form id="product-form">
+    <label>
+        <span data-t="nameEnglish"></span>
+        <input name="name" required maxlength="100">
+    </label>
+    <label>
+        <span data-t="nameKannada"></span>
+        <input name="name_kn" maxlength="100">
+      </label>
+
+      <div class="form-grid">
+        <label>
+          <span data-t="price"></span>
+          <input name="price_rupees" type="number"
+                 min="1" max="100000" required>
+        </label>
+
+        <label>
+          <span data-t="stock"></span>
+          <input name="stock" type="number"
+                 min="0" max="9999" required>
+        </label>
+    </div>
+    <label>
+         <span data-t="unit"></span>
+        <input name="unit" placeholder="250 g box"
+               required maxlength="60">
+    </label>
+    <label>
+        <span data-t="visibility"></span>
+        <select name="active">
+            <option value="true" data-t="visible"></option>
+            <option value="false" data-t="hidden"></option>
+        </select>
+    </label>
+    <p class="form-error" role="alert"></p>
+    <button class="btn" type="submit" data-t="save"></button>
+</form>
+</dialog>
+ <dialog id="order-dialog" aria-labelledby="order-product">
+    <div class="dialog-head">
+      <h2 id="order-product"></h2>
+      <button class="close" data-close aria-label="Close">×</button>
+    </div>
+<p id="order-price" class="price"></p>
+
+<form id="order-form">
+    <label>
+        <span data-t="yourName"></span>
+        <input name="customer_name" autocomplete="name"
+        required maxlength="70">
+    </label>
+
+<label>
+  <span data-t="quantity"></span>
+  <input name="qty" type="number"
+         min="1" max="20" value="1" required>
+</label>
+
+<label>
+  <span data-t="fulfilment"></span>
+    <select name="mode">
+        <option value="pickup" data-t="pickup"></option>
+          <option value="self" data-t="self"></option>
+</select>
+</label>
+           <label id="address-field" hidden>
+            <span data-t="address"></span>
+            <textarea name="address" maxlength="250"></textarea>
+           </label>
+           <div class="notice" data-t="paymentNote"></div>
+      <p class="form-error" role="alert"></p>
+
+      <button class="btn green" type="submit"
+              data-t="placeOrder"></button>
+    </form>
+  </dialog>
+<dialog id="account-dialog" aria-labelledby="account-title">
+    <div class="dialog-head">
+         <h2 id="account-title" data-t="account"></h2>
+      <button class="close" data-close aria-label="Close">×</button>
+    </div>
+
+    <div id="account-details"></div>
+
+    <button class="btn secondary" id="logout"
+            data-t="signOut"></button>
+  </dialog>
+
+  <dialog id="credits-dialog" aria-labelledby="credits-title">
+    <div class="dialog-head">
+      <h2 id="credits-title" data-t="credits"></h2>
+      <button class="close" data-close aria-label="Close">×</button>
+    </div>
+
+    
+<p data-t="photoNote"></p>
+<ul class="credits">
+    <li>
+        <a href="https://commons.wikimedia.org/wiki/File:Chakli.jpg"
+        target="_blank" rel="noopener">Chakli — Essh2981</a>
+        · CC BY-SA 4.0
+      </li>
+      <li>
+        <a 
+        href="https://commons.wikimedia.org/wiki/File:Dharwad_peda.jpg"
+target="_blank" rel="noopener">Dharwad peda — Pamri</a>
+    · Public domain
+      </li>
+      <li>
+        <a 
+href="https://commons.wikimedia.org/wiki/File:Mangopickle.jpg"
+ target="_blank" rel="noopener">Mango pickle — MrAngryEyes</a>
+  · Public domain
+      </li>
+    </ul>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"
+       target="_blank" rel="noopener">CC BY-SA 4.0 licence</a>
+
+<p class="muted" data-t="pilotNote"></p>
+</dialog>
+</body>
+</html>
+
