@@ -164,7 +164,7 @@ function renderOrders() {
     $("orders").innerHTML = orders.map(order=>{
         let actions="";
         if (seller){
-            if (order.status=="new"){
+            if (order.status === "new"){
                 actions += actionButton(order.id, "accepted", t("Accept", "ಸ್ವೀಕರಿಸಿ"));
         actions += actionButton(order.id, "declined", t("Decline", "ನಿರಾಕರಿಸಿ"));
       }
@@ -180,17 +180,14 @@ function renderOrders() {
       if (["accepted", "ready"].includes(order.status)) {
         actions += actionButton(order.id, "cancelled", t("Cancel", "ರದ್ದುಮಾಡಿ"));
       }
-    } else {
+} else {
       if (order.status === "new") {
         actions += actionButton(order.id, "cancelled", t("Cancel", "ರದ್ದುಮಾಡಿ"));
       }
 
-            }
-        }
-}
-const canConfirm=
-(order.mode ==="pickup"&&order.status==="ready")||
-(order.mode === "self" && order.status === "picked_up");
+      const canConfirm =
+        (order.mode === "pickup" && order.status === "ready") ||
+        (order.mode === "self" && order.status === "picked_up");
 
       if (canConfirm) {
         actions += actionButton(
@@ -209,7 +206,7 @@ return `
         <p>${order.mode === "pickup"
           ? t("Customer pickup", "ಅಂಗಡಿಯಿಂದ ಪಡೆಯುವುದು")
           : escapeHtml(order.address)}</p>
-          <small>#${escapeHtml(order.id.slice(0,8))}</small?>
+          <small>#${escapeHtml(order.id.slice(0,8))}</small>
          <div class="actions">${actions}</div>
  </article>
  `;
@@ -248,6 +245,7 @@ if (refreshing) return;
   } finally {
     refreshing = false;
   }
+}
 function showOrders(show){
   $("browse-panel").hidden=show;
   $("orders-panel").hidden=!show;
@@ -384,7 +382,7 @@ try{
     busy = false;
     refresh().catch(error => notice(error.message, true));
   }
-
+}
 translate();
 
 refresh().catch(error => notice(error.message, true));
@@ -394,3 +392,4 @@ setInterval(() => {
     refresh().catch(error => notice(error.message, true));
   }
 }, 5000);
+

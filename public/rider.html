@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+        <title>Mane Bazaar — Rider</title>
+        <link rel="stylesheet" href="/style.css">
+        <script src="/rider.js" defer></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">
+            <span class="brandmark">MB</span>
+            <strong>Mane Bazaar</strong>
+            </div>
+            <button class="btn secondary" id="language">ಕನ್ನಡ</button>
+            </header>
+
+    <main class="content">
+        <h1 id="title"></h1>
+        <p id="message" role="status"></p>
+        <section class="panel" id="login-panel">
+            <form id="login-form">
+                <label>
+                    Rider password / ರೈಡರ್ ಪಾಸ್‌ವರ್ಡ್
+                    <input name="password" type="password"
+                    autocomplete="current-password" required>
+                </label>
+            <button class="btn" type="submit" id="login-button">
+            </button>
+            </form>
+        </section>
+        <section id="desk" hidden>
+            <section class="panel">
+                <h2 id="availability-title"></h2>
+                <p id="availability-note" class="muted"></p>
+                <form id="availability-form">
+                    <label>
+                        Area / ಪ್ರದೇಶ
+            <select name="area" id="area"></select>
+                    </label>
+                    <div class="order-actions">
+                        <button class="btn green" name="online"
+                        value="true" id="online"></button>
+                        <button class="btn secondary" name="online"
+                        value="false" id="offline"></button>
+                    </div>
+                </form>
+                <p id="availability-status"></p>
+            </section>
+            <h2 id="current-title"></h2>
+      <div id="assigned"></div>
+
+      <h2 id="jobs-title"></h2>
+      <div id="jobs"></div>
+      <button class="text-btn" id="logout"></button>
+
+        </section>
+    </main>
+</body>
+</html>
